@@ -1,16 +1,21 @@
 const express = require('express');
+const OngController = require('./controllers/OngController');
+const IncidentsController = require('./controllers/IncidentsController');
+const ProfileController = require('./controllers/ProfileController');
+const SessionController = require('./controllers/SessionController');
 
+const routes = express.Router();
 
-const routes = express.router();
+routes.post('/session', SessionController.create);
 
+routes.get('/ongs', OngController.index);
+routes.post('/ongs', OngController.create);
 
-routes.post('/ongs', (request, response) => {
-    const data = request.params;
+routes.get('/profile', ProfileController.index);
 
-    console.log(data);
-
-    return response.send('aaaa');
-});
+routes.get('/incidents', IncidentsController.index);
+routes.post('/incidents', IncidentsController.create);
+routes.delete('/incidents/:id', IncidentsController.delete);
 
 
 module.exports = routes;
