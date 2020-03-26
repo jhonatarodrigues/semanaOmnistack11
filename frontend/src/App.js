@@ -1,12 +1,13 @@
 import React from 'react';
-import Header from './Header';
+import './global.css';
+
+
+import Logon from './pages/logon';
 
 
 function App() {
   return (
-    <Header>
-      Semana Omnistack
-    </Header>
+    <Logon />
   );
 }
 
